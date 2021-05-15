@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "780668551849",
+    "project_id": "kreeda-d4e67",
+    "storage_bucket": "kreeda-d4e67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780668551849:android:bcb0bc27c8af0573181fb8",
+        "android_client_info": {
+          "package_name": "com.kreeda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780668551849-fp1olc23pj23dgfg15ggqcao8f86ckk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgjBWjv590-w9socVEg6jbcRWfM9G6rHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780668551849-fp1olc23pj23dgfg15ggqcao8f86ckk2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
