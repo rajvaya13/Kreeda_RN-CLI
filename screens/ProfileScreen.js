@@ -201,4 +201,9 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
   },
+  u1: {
+    fontSize: 12,
+    color: '#666',
+    textAlign: 'center',
+  },
 });
