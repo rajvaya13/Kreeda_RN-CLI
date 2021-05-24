@@ -12,6 +12,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import ExploreScreen from './ExploreScreen';
 import ProfileScreen from './ProfileScreen';
 import EditProfileScreen from './EditProfileScreen';
+import MyTournament from './MyTournament';
+import MyMatches from './MyMatches';
+import PersonalInfo from './PersonalInfo';
+import Achievement from './Achievement';
+import Analysis from './Analysis';
+import MyTeams from './MyTeams';
 
 const HomeStack = createStackNavigator();
 const DetailStack = createStackNavigator();
@@ -175,6 +181,98 @@ function ProfileStackScreen({navigation}) {
           },
         }}
       />
+
+<Stack.Screen
+        name="MyTournament"
+        component={MyTournament}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
+
+<Stack.Screen
+        name="MyMatches"
+        component={MyMatches}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
+
+<Stack.Screen
+        name="PersonalInfo"
+        component={PersonalInfo}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
+
+<Stack.Screen
+        name="Achievement"
+        component={Achievement}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
+
+<Stack.Screen
+        name="Analysis"
+        component={Analysis}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
+
+<Stack.Screen
+        name="MyTeams"
+        component={MyTeams}
+        options={{
+          headerTitle: 'Edit Profile',
+          headerBackTitleVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#fff',
+            shadowColor: '#fff',
+            elevation: 0,
+          },
+        }}
+      />
     </Stack.Navigator>
+
+    
   );
 }
