@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
   },
-  u3: {
+  u5: {
     fontSize: 12,
     color: '#666',
     textAlign: 'center',
