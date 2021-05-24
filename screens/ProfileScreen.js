@@ -132,7 +132,7 @@ function ProfileScreen({navigation, route}) {
 
         {/* {posts.map(item => (
           <PostCard key={item.id} item={item} onDelete={handleDelete} />
-        ))} */}
+        ))}  */}
       </ScrollView>
     </SafeAreaView>
   );

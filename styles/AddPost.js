@@ -22,6 +22,11 @@ export const AddImage = styled.Image`
   height: 250px;
   margin-bottom: 15px;
 `;
+export const AddDoc = styled.Image`
+  width: 50%;
+  height: 100px;
+  margin-bottom: 15px;
+`;
 
 export const StatusWrapper = styled.View`
   justify-content: center;

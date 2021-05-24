@@ -66,7 +66,6 @@ function AddTournamentScreen() {
   const submitPost = async () => {
     const imageUrl = await uploadImage();
     console.log('Image Url: ', imageUrl);
-    console.log('Post: ', post);
 
     firestore()
       .collection('posts')
@@ -75,8 +74,6 @@ function AddTournamentScreen() {
         post: post,
         postImg: imageUrl,
         postTime: firestore.Timestamp.fromDate(new Date()),
-        likes: null,
-        comments: null,
       })
       .then(() => {
         console.log('Post Added!');

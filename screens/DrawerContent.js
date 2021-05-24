@@ -48,7 +48,7 @@ export function DrawerContent(props) {
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
-          <View style={styles.userInfoSection}>
+          {/* <View style={styles.userInfoSection}>
             <View style={{flexDirection: 'row', marginTop: 15}}>
               <Avatar.Image
                 source={{
@@ -62,20 +62,8 @@ export function DrawerContent(props) {
               </View>
             </View>
             <View style={styles.row}>
-              {/* <View style={styles.section}>
-                <Paragraph style={(styles.paragraph, styles.caption)}>
-                  100
-                </Paragraph>
-                <Caption style={styles.caption}>Following</Caption>
-              </View>
-              <View style={styles.section}>
-                <Paragraph style={(styles.paragraph, styles.caption)}>
-                  120
-                </Paragraph>
-                <Caption style={styles.caption}>Followers</Caption>
-              </View> */}
             </View>
-          </View>
+          </View> */}
 
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
@@ -128,7 +116,7 @@ export function DrawerContent(props) {
               }}
             /> */}
 
-            <DrawerItem
+            {/* <DrawerItem
               icon={({color, size}) => (
                 <Icon1 name="add-box" color={color} size={size} />
               )}
@@ -136,7 +124,7 @@ export function DrawerContent(props) {
               onPress={() => {
                 props.navigation.navigate('AddTournamentScreen');
               }}
-            />
+            /> */}
 
             <DrawerItem
               icon={({color, size}) => (

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import {SafeAreaView, ScrollView} from 'react-native';
 import {
   Container,
   Card,
@@ -63,55 +63,95 @@ function PostCard({item, onDelete, onPress}) {
   }, []);
 
   return (
-    <Card key={item.id}>
-      <UserInfo>
-        <UserImg
-          source={{
-            uri: userData
-              ? userData.userImg ||
-                'https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31.jpg'
-              : 'https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31.jpg',
-          }}
-        />
-        <UserInfoText>
-          <TouchableOpacity onPress={onPress}>
-            <UserName>
-              {userData ? userData.fname || 'Test' : 'Test'}{' '}
-              {userData ? userData.lname || 'User' : 'Name'}
-            </UserName>
-          </TouchableOpacity>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <ScrollView>
+        {/* <Card key={item.id}>
+          <UserInfo>
+            <UserImg
+              source={{
+                uri: userData
+                  ? userData.userImg ||
+                    'https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31.jpg'
+                  : 'https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31.jpg',
+              }}
+            />
+            <UserInfoText>
+              <TouchableOpacity onPress={onPress}>
+                <UserName>
+                  {userData ? userData.fname || 'Test' : 'Test'}{' '}
+                  {userData ? userData.lname || 'User' : 'Name'}
+                </UserName>
+              </TouchableOpacity>
 
-          <PostTime>{moment(item.postTime.toDate()).fromNow()}</PostTime>
-        </UserInfoText>
-      </UserInfo>
-      <PostText>{item.post}</PostText>
-      {item.postImg != null ? (
-        <ProgressiveImage
-          defaultImageSource={require('../assets/default-img.jpg')}
-          source={{uri: item.postImg}}
-          style={{width: '100%', height: 250}}
-          resizeMode="cover"
-        />
-      ) : (
-        <Divider />
-      )}
+              <PostTime>{moment(item.postTime.toDate()).fromNow()}</PostTime>
+            </UserInfoText>
+          </UserInfo>
+          <PostText>{item.post}</PostText>
+          {item.postImg != null ? (
+            <ProgressiveImage
+              defaultImageSource={require('../assets/default-img.jpg')}
+              source={{uri: item.postImg}}
+              style={{width: '100%', height: 250}}
+              resizeMode="cover"
+            />
+          ) : (
+            <Divider />
+          )}
 
-      <InteractionWrapper>
-        {/* <Interaction active={item.liked}>
-          <Icon name={likeIcon} size={25} color={likeIconColor} />
-          <InteractionText active={item.liked}>{likeText}</InteractionText>
-        </Interaction>
-        <Interaction>
-          <Icon name="md-chatbubble-outline" size={25} />
-          <InteractionText>{commentText}</InteractionText>
-        </Interaction> */}
-        {user.uid == item.userId ? (
-          <Interaction onPress={() => onDelete(item.id)}>
-            <Icon name="md-trash-bin" size={25} />
-          </Interaction>
-        ) : null}
-      </InteractionWrapper>
-    </Card>
+          <InteractionWrapper>
+            {user.uid == item.userId ? (
+              <Interaction onPress={() => onDelete(item.id)}>
+                <Icon name="md-trash-bin" size={25} />
+              </Interaction>
+            ) : null}
+          </InteractionWrapper>
+        </Card> */}
+
+        <Card key={item.id}>
+          <UserInfo>
+            <UserImg
+              source={{
+                uri: userData
+                  ? userData.userImg ||
+                    'https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31.jpg'
+                  : 'https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31.jpg',
+              }}
+            />
+            <UserInfoText>
+              <TouchableOpacity onPress={onPress}>
+                <UserName>
+                  {userData ? userData.fname || 'Test' : 'Test'}{' '}
+                  {userData ? userData.lname || 'User' : 'Name'}
+                </UserName>
+              </TouchableOpacity>
+
+              <PostTime>{moment(item.postTime.toDate()).fromNow()}</PostTime>
+            </UserInfoText>
+          </UserInfo>
+          <PostText>Tournament Name - {item.tName}</PostText>
+          <PostText>Ground - {item.ground}</PostText>
+          <PostText>Location - {item.location}</PostText>
+          {item.postImg != null ? (
+            <ProgressiveImage
+              defaultImageSource={require('../assets/default-img.jpg')}
+              source={{uri: item.postImg}}
+              style={{width: '100%', height: 250}}
+              resizeMode="cover"
+            />
+          ) : (
+            <Divider />
+          )}
+
+          <InteractionWrapper>
+            {user.uid == item.userId ? (
+              <Interaction onPress={() => onDelete(item.id)}>
+                <Icon name="md-trash-bin" size={25} />
+              </Interaction>
+            ) : null}
+          </InteractionWrapper>
+        </Card>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
