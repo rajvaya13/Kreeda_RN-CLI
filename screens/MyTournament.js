@@ -128,11 +128,13 @@ import {UserImg} from '../styles/Screen1Styles';
 function MyTournament({navigation}) {
   return (
     <View style={styles.container}>
-     <Button
-  onPress={()=>{navigation.navigate("AddTournament")}}
-  title="CREATE TOURNAMENT"
-  color="#841584"
-  />
+      <Button
+        onPress={() => {
+          navigation.navigate('AddTournament');
+        }}
+        title="CREATE TOURNAMENT"
+        color="#841584"
+      />
     </View>
   );
 }
