@@ -7,6 +7,7 @@ import {
   TextInput,
   View,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -20,6 +21,7 @@ import {AuthContext1} from '../navigation/AuthProvider';
 import ImagePicker from 'react-native-image-crop-picker';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
+import {StatusWrapper} from '../styles/AddPost';
 
 function EditProfileScreen({navigation}) {
   const {colors} = useTheme();
@@ -296,9 +298,18 @@ function EditProfileScreen({navigation}) {
             />
           </View>
 
-          <TouchableOpacity style={styles.commandButton} onPress={handleUpdate}>
-            <Text style={styles.panelButtonTitle}>Update</Text>
-          </TouchableOpacity>
+          {uploading ? (
+            <StatusWrapper>
+              <Text>{transferred} % Completed!</Text>
+              <ActivityIndicator size="large" color="#0000ff" />
+            </StatusWrapper>
+          ) : (
+            <TouchableOpacity
+              style={styles.commandButton}
+              onPress={handleUpdate}>
+              <Text style={styles.panelButtonTitle}>Update</Text>
+            </TouchableOpacity>
+          )}
         </Animated.View>
       </View>
     </ScrollView>
