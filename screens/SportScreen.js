@@ -35,7 +35,18 @@ function SportScreen({navigation}) {
         <Right />
       </Header>
       <Content padder>
-        <Text>10 Rounds Game</Text>
+        <Text
+          style={{
+            fontSize: 25,
+            textDecorationLine: 'underline',
+            fontWeight: 'bold',
+          }}>
+          Rules:-
+        </Text>
+        <Text>1. The match consists of the best of 10 points.</Text>
+        <Text>2. First Player to score 10 points wins the game.</Text>
+        <Text>3. The fouls are counted.</Text>
+        <Text>4. Player 1 one start the service.</Text>
         <Button
           iconRight
           primary
