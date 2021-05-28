@@ -22,6 +22,7 @@ import {AuthContext1} from '../navigation/AuthProvider';
 import moment from 'moment';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import firestore from '@react-native-firebase/firestore';
+import {View} from 'native-base';
 
 function PostCard({item, onDelete, onPress}) {
   const {user} = useContext(AuthContext1);
@@ -129,7 +130,7 @@ function PostCard({item, onDelete, onPress}) {
             </UserInfoText>
           </UserInfo>
           <PostText>Tournament Name - {item.tName}</PostText>
-          <PostText>Ground - {item.ground}</PostText>
+          <PostText>Court - {item.ground}</PostText>
           <PostText>Location - {item.location}</PostText>
           {item.postImg != null ? (
             <ProgressiveImage
@@ -144,9 +145,11 @@ function PostCard({item, onDelete, onPress}) {
 
           <InteractionWrapper>
             {user.uid == item.userId ? (
-              <Interaction onPress={() => onDelete(item.id)}>
-                <Icon name="md-trash-bin" size={25} />
-              </Interaction>
+              <View>
+                <Interaction onPress={() => onDelete(item.id)}>
+                  <Icon name="md-trash-bin" size={25} />
+                </Interaction>
+              </View>
             ) : null}
           </InteractionWrapper>
         </Card>

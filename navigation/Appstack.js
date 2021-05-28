@@ -12,6 +12,9 @@ import AddTournamentScreen from '../screens/AddTournamentScreen';
 import LeaderBoardScreen from '../screens/LeaderBoardScreen';
 import AboutUs from '../screens/AboutUs';
 import AddTournament from '../screens/AddTournament';
+import SportScreen from '../screens/SportScreen';
+import BadmintonScreen from '../screens/BadmintonScreen';
+import GameScreen from '../screens/GameScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -24,9 +27,12 @@ function AppStack() {
         component={AddTournamentScreen}
       />
       <Drawer.Screen name="AddTournament" component={AddTournament} />
+      <Drawer.Screen name="SportScreen" component={SportScreen} />
       <Drawer.Screen name="HealthTipsScreen" component={HealthTipsScreen} />
       <Drawer.Screen name="LeaderBoardScreen" component={LeaderBoardScreen} />
       <Drawer.Screen name="AboutUs" component={AboutUs} />
+      <Drawer.Screen name="BadmintonScreen" component={BadmintonScreen} />
+      <Drawer.Screen name="GameScreen" component={GameScreen} />
     </Drawer.Navigator>
   );
 }

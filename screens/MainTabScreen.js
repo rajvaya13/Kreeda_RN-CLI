@@ -182,11 +182,11 @@ function ProfileStackScreen({navigation}) {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="MyTournament"
         component={MyTournament}
         options={{
-          headerTitle: 'Edit Profile',
+          headerTitle: 'My Tournament',
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -197,11 +197,11 @@ function ProfileStackScreen({navigation}) {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="MyMatches"
         component={MyMatches}
         options={{
-          headerTitle: 'Edit Profile',
+          headerTitle: 'My Matches',
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -212,7 +212,7 @@ function ProfileStackScreen({navigation}) {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="PersonalInfo"
         component={PersonalInfo}
         options={{
@@ -227,11 +227,11 @@ function ProfileStackScreen({navigation}) {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="Achievement"
         component={Achievement}
         options={{
-          headerTitle: 'Edit Profile',
+          headerTitle: 'Acheivement',
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -242,11 +242,11 @@ function ProfileStackScreen({navigation}) {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="Analysis"
         component={Analysis}
         options={{
-          headerTitle: 'Edit Profile',
+          headerTitle: 'Analysis',
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -257,11 +257,11 @@ function ProfileStackScreen({navigation}) {
         }}
       />
 
-<Stack.Screen
+      <Stack.Screen
         name="MyTeams"
         component={MyTeams}
         options={{
-          headerTitle: 'Edit Profile',
+          headerTitle: 'My Teams',
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerStyle: {
@@ -272,7 +272,5 @@ function ProfileStackScreen({navigation}) {
         }}
       />
     </Stack.Navigator>
-
-    
   );
 }
