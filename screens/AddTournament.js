@@ -149,7 +149,7 @@ export default function AddTournament() {
           underlineColorAndroid={'transparent'}></TextInput>
         <TextInput
           style={styles.textinput}
-          placeholder="Ground"
+          placeholder="Court"
           value={ground}
           onChangeText={content => setGround(content)}
           underlineColorAndroid={'transparent'}></TextInput>

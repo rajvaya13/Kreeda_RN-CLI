@@ -127,51 +127,63 @@ function ProfileScreen({navigation, route}) {
                 }}>
                 <Text style={styles.userBtnTxt}>Edit Profile</Text>
               </TouchableOpacity>
+              <Button
+                style={styles.buttonU}
+                onPress={() => {
+                  navigation.navigate('MyTournament');
+                }}
+                title="My Tournament"
+                color="#841584"
+              />
             </>
           )}
         </View>
 
-        <Button
+        <View style={styles.userBtnWrapper}>
+          {route.params ? (
+            <>
+              {/* <TouchableOpacity style={styles.userBtn} onPress={() => {}}>
+                <Text style={styles.userBtnTxt}>Follow Profile</Text>
+              </TouchableOpacity> */}
+            </>
+          ) : (
+            <>
+              <Button
+                style={styles.buttonU}
+                onPress={() => {
+                  navigation.navigate('Analysis');
+                }}
+                title="ANALYSIS"
+                color="#841584"
+              />
+              <TouchableOpacity
+                style={styles.userBtn}
+                onPress={() => {
+                  navigation.navigate('Achievement');
+                }}>
+                <Text style={styles.userBtnTxt}>Acheivement</Text>
+              </TouchableOpacity>
+            </>
+          )}
+        </View>
+
+        {/* <Button
           style={styles.ButtonU}
           onPress={() => {
             navigation.navigate('MyMatches');
           }}
           title="MY MATCHES"
           color="#841584"
-        />
+        /> */}
 
-        <Button
-          style={styles.ButtonU}
-          onPress={() => {
-            navigation.navigate('Achievement');
-          }}
-          title="ACHIEVEMENT"
-          color="#841584"
-        />
-        <Button
-          style={styles.ButtonU}
-          onPress={() => {
-            navigation.navigate('MyTournament');
-          }}
-          title="My Tournament"
-          color="#841584"
-        />
-        <Button
-          style={styles.ButtonU}
-          onPress={() => {
-            navigation.navigate('Analysis');
-          }}
-          title="ANALYSIS"
-          color="#841584"
-        />
-        <Button
+        {/* <Button
           style={styles.ButtonU}
           onPress={() => {
             navigation.navigate('MyTeams');
           }}
           title="MY TEAMS"
           color="#841584"
-        />
+        /> */}
 
         {/* {posts.map(item => (
           <PostCard key={item.id} item={item} onDelete={handleDelete} />
@@ -244,79 +256,10 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
   },
-  u4: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-  },
-  ButtonU: {
-    marginBottom: 10,
-    marginTop: 15,
-    borderColor: '#009387',
-    borderWidth: 1,
+  buttonU: {
+    flex: 1,
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    marginTop: 5,
   },
 });
-
-//button part
-
-// import React, {useContext} from 'react';
-// import {
-//   SafeAreaView,
-//   ScrollView,
-//   StatusBar,
-//   StyleSheet,
-//   Text,
-//   Button,
-//   useColorScheme,
-//   View,
-// } from 'react-native';
-// import {UserImg} from '../styles/Screen1Styles';
-
-// function ProfileScreen({navigation}) {
-//   return (
-//     <View style={styles.container}>
-
-// <Button
-//   onPress={()=>{navigation.navigate("PersonalInfo")}}
-//   title="PEROSNAL INFO"
-//   color="#841584"
-//   />
-//    <Button
-//   onPress={()=>{navigation.navigate("MyMatches")}}
-//   title="MY MATCHES"
-//   color="#841584"
-//   />
-
-//    <Button
-//   onPress={()=>{navigation.navigate("Achievement")}}
-//   title="ACHIEVEMENT"
-//   color="#841584"
-//   />
-//    <Button
-//   onPress={()=>{navigation.navigate("MyTournament")}}
-//   title="My Tournament"
-//   color="#841584"
-//   />
-//    <Button
-//   onPress={()=>{navigation.navigate("Analysis")}}
-//   title="ANALYSIS"
-//   color="#841584"
-//   />
-//    <Button
-//   onPress={()=>{navigation.navigate("MyTeams")}}
-//   title="MY TEAMS"
-//   color="#841584"
-//   />
-//     </View>
-//   );
-// }
-
-// export default ProfileScreen;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
