@@ -103,7 +103,11 @@ function GameScreen({navigation}) {
         </View>
       </SafeAreaView>
 
-      <Button primary>
+      <Button
+        primary
+        onPress={() => {
+          navigation.navigate('ScoreBoardScreen');
+        }}>
         <Text>Game Over</Text>
       </Button>
     </Container>
