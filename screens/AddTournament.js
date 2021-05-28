@@ -181,7 +181,7 @@ export default function AddTournament() {
           underlineColorAndroid={'transparent'}></TextInput>
         <TextInput
           style={styles.textinput}
-          placeholder="No. of Overs(1-99)"
+          placeholder="No. of Rounds"
           value={nOfOvers}
           onChangeText={content => setNoOfOvers(content)}
           underlineColorAndroid={'transparent'}></TextInput>
