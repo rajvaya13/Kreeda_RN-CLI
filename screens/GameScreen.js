@@ -15,28 +15,75 @@ import {
 } from 'native-base';
 import React, {useContext} from 'react';
 import {useState} from 'react';
+import {Alert} from 'react-native';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 import {UserImg} from '../styles/Screen1Styles';
+import {AuthContext1} from '../navigation/AuthProvider';
+import firestore from '@react-native-firebase/firestore';
 
 function GameScreen({navigation}) {
+  const {user} = useContext(AuthContext1);
   const [count, setCount] = useState(0);
   const [count1, setCount1] = useState(0);
   const [foul, setFoul] = useState(0);
   const [foul1, setFoul1] = useState(0);
+  const [post, setPost] = useState(null);
+
+  const submitScore = async () => {
+    firestore()
+      .collection('scoreBoard')
+      .add({
+        userId: user.uid,
+        count: count,
+        count1: count1,
+        foul: foul,
+        foul1: foul1,
+      })
+      .then(() => {
+        Alert.alert(
+          'Score Submitted',
+          'Click on Game Over button to see score!',
+        );
+        setPost(null);
+      })
+      .catch(error => {
+        console.log(
+          'Something went wrong with added post to firestore.',
+          error,
+        );
+      });
+  };
 
   function incValue() {
-    setCount(count + 1);
-  }
-  function decValue() {
-    setCount(count - 1);
+    if (count != 10) {
+      setCount(count + 1);
+    } else {
+      Alert.alert('Player 1 Wins', 'Press Done Button to submit score!');
+    }
   }
 
   function incValue1() {
-    setCount1(count1 + 1);
+    if (count1 != 10) {
+      setCount1(count1 + 1);
+    } else {
+      Alert.alert('Player 2 Wins', 'Press Done Button to submit score!');
+    }
+  }
+
+  function decValue() {
+    if (count > 0) {
+      setCount(count - 1);
+    } else {
+      Alert.alert('Error', 'Score cannot be less than 0!');
+    }
   }
 
   function decValue1() {
-    setCount1(count1 - 1);
+    if (count1 > 0) {
+      setCount1(count1 - 1);
+    } else {
+      Alert.alert('Error', 'Score cannot be less than 0!');
+    }
   }
 
   function foulVal() {
@@ -60,7 +107,6 @@ function GameScreen({navigation}) {
         </Body>
         <Right />
       </Header>
-
       <SafeAreaView style={styles.container}>
         <View style={styles.parent}>
           <Text style={{fontSize: 100}}>{count}</Text>
@@ -87,14 +133,14 @@ function GameScreen({navigation}) {
             <Button primary onPress={decValue}>
               <Text>Undo Player 1</Text>
             </Button>
-            <Button primary onPress={decValue1}>
-              <Text>Undo Player 2</Text>
+            <Button primary onPress={foulVal}>
+              <Text>Foul Player 1</Text>
             </Button>
           </View>
 
           <View>
-            <Button primary onPress={foulVal}>
-              <Text>Foul Player 1</Text>
+            <Button primary onPress={decValue1}>
+              <Text>Undo Player 2</Text>
             </Button>
             <Button primary onPress={foulVal1}>
               <Text>Foul Player 2</Text>
@@ -102,7 +148,9 @@ function GameScreen({navigation}) {
           </View>
         </View>
       </SafeAreaView>
-
+      <Button primary onPress={submitScore}>
+        <Text>Done</Text>
+      </Button>
       <Button
         primary
         onPress={() => {

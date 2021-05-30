@@ -26,9 +26,6 @@ export default function ScoreBoardScreen({navigation}) {
     ['Score Board', 'a', 'b', 'c', 'd'],
   ]);
 
-  function _alertIndex(value) {
-    Alert.alert(`This is column ${value}`);
-  }
   return (
     <View style={styles.container}>
       <View style={styles.container}>
