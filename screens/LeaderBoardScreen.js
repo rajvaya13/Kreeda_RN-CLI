@@ -13,34 +13,60 @@ import {
   View,
 } from 'native-base';
 import React, {useContext, useState} from 'react';
-import {SafeAreaView, StyleSheet, TextInput, Alert,ScrollView} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  Alert,
+  ScrollView,
+  FlatList,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
 import {AuthContext1} from '../navigation/AuthProvider';
 import firestore from '@react-native-firebase/firestore';
-import { FlatList } from 'react-native-gesture-handler';
 
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
 
+const Item = ({item, onPress, backgroundColor, textColor}) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+    <Text style={[styles.title, textColor]}>{item.title}</Text>
+  </TouchableOpacity>
+);
 
-function LeaderBoardListScreen({navigation}) {
-  
-  const [TeamName, setTeamName] = useState("");
-  const [TeamTown, setTeamTown] = useState("");
-  const [isUploading,setIsUploading] = useState(false);
-  const DATA = [
-      {
-        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-        title: "First Item",
-      },
-      {
-        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-        title: "Second Item",
-      },
-      {
-        id: "58694a0f-3da1-471f-bd96-145571e29d72",
-        title: "Third Item",
-      },
-    ];
+export default function LeaderBoardScreen({navigation}) {
+  const [TeamName, setTeamName] = useState('');
+  const [TeamTown, setTeamTown] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
 
-    return(
+  const [selectedId, setSelectedId] = useState(null);
+  const renderItem = ({item}) => {
+    const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
+    const color = item.id === selectedId ? 'white' : 'black';
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        backgroundColor={{backgroundColor}}
+        textColor={{color}}
+      />
+    );
+  };
+
+  return (
     <Container>
       <Header>
         <Left>
@@ -54,59 +80,28 @@ function LeaderBoardListScreen({navigation}) {
         <Right />
       </Header>
       <SafeAreaView>
-       <FlatList>
-           data={DATA}
-           keyExtractor={(item)=>item.id}
-           renderItem={({item})=>{
-               return (<View>
-                   <View>
-                       <Text>
-                           {item.title}
-                       </Text>
-                   </View>
-               </View>)
-           }
-           }
-       </FlatList>
-       </SafeAreaView>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+      </SafeAreaView>
     </Container>
-    
-        )
+  );
+}
 
-    }
-
-export default LeaderBoardListScreen;
-
-//   const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       alignItems: 'center',
-//       justifyContent: 'center',
-//     },
-//     input: {
-//       height: 40,
-//       margin: 12,
-//       borderWidth: 1,
-//       color : 'black'
-//     },
-//     textinput:{
-//         textAlign: 'center'
-//     },
-//     contentContainer:{
-//         alignContent:'center'
-//     },
-//     teamImage:{
-//         height:150,
-//         width:150,
-//         borderRadius: 75
-//     },
-//     AddTeamstyle:{
-//         justifyContent: 'center',
-//         alignItems: 'center'
-//     },
-//     userImg: {
-//       height: 150,
-//       width: 150,
-//       borderRadius: 75,
-//     }
-//   });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});

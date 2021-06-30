@@ -148,21 +148,21 @@ function ProfileScreen({navigation, route}) {
             </>
           ) : (
             <>
-              <Button
+              {/* <Button
                 style={styles.buttonU}
                 onPress={() => {
                   navigation.navigate('Analysis');
                 }}
                 title="ANALYSIS"
                 color="#841584"
-              />
-              <TouchableOpacity
+              /> */}
+              {/* <TouchableOpacity
                 style={styles.userBtn}
                 onPress={() => {
                   navigation.navigate('Achievement');
                 }}>
                 <Text style={styles.userBtnTxt}>Acheivement</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </>
           )}
         </View>

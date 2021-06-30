@@ -14,6 +14,7 @@ import {
   Cols,
   Cell,
 } from 'react-native-table-component';
+import firestore from '@react-native-firebase/firestore';
 
 export default function ScoreBoardScreen({navigation}) {
   const [tableTitle, setTableTitle] = useState([
@@ -23,7 +24,7 @@ export default function ScoreBoardScreen({navigation}) {
     'Foul',
   ]);
   const [tableData, setTableData] = useState([
-    ['Score Board', 'a', 'b', 'c', 'd'],
+    ['Score Board', '10', '2', '8', '3'],
   ]);
 
   return (

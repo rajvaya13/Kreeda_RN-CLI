@@ -166,7 +166,7 @@ export function DrawerContent(props) {
               }}
             />
 
-            <DrawerItem
+            {/* <DrawerItem
               icon={({color, size}) => (
                 <Icon1 name="leaderboard" color={color} size={size} />
               )}
@@ -174,7 +174,7 @@ export function DrawerContent(props) {
               onPress={() => {
                 props.navigation.navigate('LeaderBoardScreen');
               }}
-            />
+            /> */}
 
             <DrawerItem
               icon={({color, size}) => (
@@ -204,7 +204,7 @@ export function DrawerContent(props) {
               }}
             />
           </Drawer.Section>
-          <Drawer.Section title="Preferences">
+          {/* <Drawer.Section title="Preferences">
             <TouchableRipple
               onPress={() => {
                 toggleTheme();
@@ -216,7 +216,7 @@ export function DrawerContent(props) {
                 </View>
               </View>
             </TouchableRipple>
-          </Drawer.Section>
+          </Drawer.Section> */}
         </View>
       </DrawerContentScrollView>
 

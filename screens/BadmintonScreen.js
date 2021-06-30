@@ -50,6 +50,10 @@ function BadmintonScreen({navigation}) {
       });
   };
 
+  function change_screen() {
+    navigation.navigate('GameScreen');
+  }
+
   return (
     <Container>
       <Header>
@@ -78,15 +82,16 @@ function BadmintonScreen({navigation}) {
           value={player2}
         />
 
-        <Button iconRight primary onPress={playGame}>
+        {/* <Button iconRight primary onPress={playGame}>
           <Text>Done</Text>
-        </Button>
+        </Button> */}
 
         <Button
           iconRight
           primary
           onPress={() => {
-            navigation.navigate('GameScreen');
+            playGame();
+            change_screen();
           }}>
           <Text>Next</Text>
           <Icon name="arrow-forward" />
